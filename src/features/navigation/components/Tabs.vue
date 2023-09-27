@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {inject, PropType, ref} from "vue";
-import {Navigation} from "../model/navigation/navigation.ts";
+import {Navigation} from "../model/navigation";
 
-const instance = inject<Navigation>(Navigation.key) as Navigation
+const nav = inject<Navigation>(Navigation.key) as Navigation
 
 const props = defineProps({
   tabs: { 
@@ -16,17 +16,8 @@ const active = ref(0)
 const scroll = (event: Event) => {
   const input = document.querySelector('input') as HTMLInputElement
   input.blur()
-
-  instance.effect = 'height 0.2s ease-out'
-  let el = event.target as HTMLElement
-  if(el.scrollTop > 0) {
-    instance.current = 2
-    instance.barHeight = instance.getCurrentState()
-  }
-
-  if(el.scrollTop === 0) {
-    instance.current = instance.current - 1
-    instance.barHeight = instance.getCurrentState()
+  if(nav.action) {
+    nav.action.scroll(nav, event)
   }
 }
 </script>

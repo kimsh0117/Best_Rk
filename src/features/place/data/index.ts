@@ -1,4 +1,11 @@
-export const data = [
+
+export type TPlace = {
+    category: string;
+    name: string
+    lng: number
+    lat: number
+}
+export const data: TPlace[] = [
     {
         category: 'place',
         name: 'place1',

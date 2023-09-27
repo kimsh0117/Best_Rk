@@ -1,4 +1,5 @@
-import {Constants} from "../../constants/constants.ts";
+import {Constants} from "../../../constants/constants";
+import {INavigationAction} from "./inavigation_action";
 
 /**
  * this class is Singleton
@@ -18,7 +19,7 @@ export class Navigation {
     private _barHeight = Constants.NAVIGATION_LOWER
     private _states = [Constants.NAVIGATION_LOWER]
 
-
+    private _action: INavigationAction | undefined
     constructor() {
         if(Navigation._instance) {
             return Navigation._instance
@@ -88,5 +89,11 @@ export class Navigation {
     }
     set barHeight(height: number) {
         this._barHeight = height
+    }
+    get action() {
+        return this._action
+    }
+    set action(action: INavigationAction | undefined) {
+        this._action = action
     }
 }
