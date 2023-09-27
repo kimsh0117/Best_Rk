@@ -7,3 +7,6 @@
 5. При нажатии на поле ввода шторка разворачивается в верхнее положение.
 
 https://cloud.mail.ru/public/43Yy/gsq5bBzH1 (https://cloud.mail.ru/public/43Yy/gsq5bBzH1)
+
+deploy in:
+https://best-rk.netlify.app/
